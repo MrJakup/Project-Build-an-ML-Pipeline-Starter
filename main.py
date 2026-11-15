@@ -51,9 +51,8 @@ def go(config: DictConfig):
 
         if "basic_cleaning" in active_steps:
             _ = mlflow.run(
-                f"{config['main']['components_repository']}/basic_cleaning",
+                os.path.join(hydra.utils.get_original_cwd(), "src", "basic_cleaning"),
                 "main",
-                version='main',
                 env_manager="conda",
                 parameters={
                     "input_artifact": "sample.csv:latest",
