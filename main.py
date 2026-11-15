@@ -51,7 +51,7 @@ def go(config: DictConfig):
 
         if "basic_cleaning" in active_steps:
             _ = mlflow.run(
-                f"{config['main']['components_repository']}/get_data",
+                f"{config['main']['components_repository']}/basic_cleaning",
                 "main",
                 version='main',
                 env_manager="conda",
